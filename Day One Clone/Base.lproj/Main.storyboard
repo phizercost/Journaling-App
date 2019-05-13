@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Journal View Controller-->
+        <!--Journal Detail View Controller-->
         <scene sceneID="ipn-kr-QRv">
             <objects>
-                <viewController id="CnK-LR-1qH" customClass="CreateJournalViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CnK-LR-1qH" customClass="JournalDetailViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oCM-nU-HtK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="2309" y="-335"/>
         </scene>
-        <!--Journal Detail View Controller-->
+        <!--Create Journal View Controller-->
         <scene sceneID="Le2-1h-htR">
             <objects>
-                <viewController id="pQY-BS-Edd" customClass="JournalDetailViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pQY-BS-Edd" customClass="CreateJournalViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rzy-jU-2jx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,8 +72,16 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="Ue0-7h-m82">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WMT-1T-mil"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7Rb-RT-NpX"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WMT-1T-mil">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="pQY-BS-Edd" id="h27-KT-g2a"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7Rb-RT-NpX">
+                                            <connections>
+                                                <action selector="saveTapped:" destination="pQY-BS-Edd" id="cyo-xB-xIC"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -93,6 +101,9 @@
                                                     <constraint firstAttribute="width" constant="70" id="sd9-o1-EXL"/>
                                                 </constraints>
                                                 <state key="normal" image="calendar"/>
+                                                <connections>
+                                                    <action selector="calendarTapped:" destination="pQY-BS-Edd" eventType="touchUpInside" id="JNc-Q0-OMJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etz-6q-qT7">
                                                 <rect key="frame" x="80" y="0.0" width="70" height="70"/>
@@ -100,6 +111,9 @@
                                                     <constraint firstAttribute="width" constant="70" id="WkA-Rx-FEC"/>
                                                 </constraints>
                                                 <state key="normal" image="blueCamera"/>
+                                                <connections>
+                                                    <action selector="blueCameraTapped:" destination="pQY-BS-Edd" eventType="touchUpInside" id="mfP-xP-3zv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -120,15 +134,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X92-Vv-XK8">
+                            <datePicker hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X92-Vv-XK8">
                                 <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <date key="date" timeIntervalSinceReferenceDate="579453287.71394706">
                                     <!--2019-05-13 15:14:47 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-8G-JfC">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-8G-JfC">
                                 <rect key="frame" x="0.0" y="764" width="414" height="30"/>
                                 <state key="normal" title="Set Date"/>
+                                <connections>
+                                    <action selector="setDateTapped:" destination="pQY-BS-Edd" eventType="touchUpInside" id="5HX-Nn-jRF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,6 +174,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Ke-0q-uxH"/>
                     </view>
+                    <connections>
+                        <outlet property="aboveNavBar" destination="zqb-mj-7fo" id="KLc-gg-UR6"/>
+                        <outlet property="bottomConstraint" destination="dLu-RT-m42" id="lh5-nx-RP0"/>
+                        <outlet property="datePicker" destination="X92-Vv-XK8" id="wmt-N0-lft"/>
+                        <outlet property="navbar" destination="N5o-rv-QJz" id="ivE-Qi-fFz"/>
+                        <outlet property="setDateButton" destination="ojZ-8G-JfC" id="aAo-Vu-w7u"/>
+                        <outlet property="stackView" destination="FNU-B4-70W" id="wwj-b6-Foc"/>
+                        <outlet property="textView" destination="V9q-SW-wjA" id="4Hq-CT-zbZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYh-KS-PHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
