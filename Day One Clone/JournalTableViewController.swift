@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class JournalTableViewController: UITableViewController {
 
@@ -23,6 +24,13 @@ class JournalTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        if let realm = try? Realm() {
+            let entries = realm.objects(Entry.self)
+            print(entries[0].text)
+             print(entries[0].date)
+             print(entries[0].pictures.count)
+        }
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
