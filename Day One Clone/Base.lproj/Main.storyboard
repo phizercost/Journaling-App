@@ -188,11 +188,11 @@
             </objects>
             <point key="canvasLocation" x="4318.840579710145" y="-983.03571428571422"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Day One Clone-->
         <scene sceneID="E0X-tK-dxq">
             <objects>
                 <tabBarController id="niY-ek-AgQ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="OqG-lB-d9z"/>
+                    <navigationItem key="navigationItem" title="Day One Clone" id="OqG-lB-d9z"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZKg-bc-hPz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -331,6 +331,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="vMh-y4-0tY"/>
                     <connections>
+                        <outlet property="topHeaderView" destination="hl0-QT-Xa4" id="aAY-Ly-rGF"/>
                         <outlet property="whiteAddBtn" destination="aoW-d9-J3O" id="Zf1-gj-K4u"/>
                         <outlet property="whiteCameraBtn" destination="8rg-sq-YIv" id="cmh-Qb-lBC"/>
                         <segue destination="pQY-BS-Edd" kind="presentation" identifier="goToNew" id="Vyb-jV-2j8"/>
@@ -347,6 +348,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LnR-Zu-k6Z">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="niY-ek-AgQ" kind="relationship" relationship="rootViewController" id="ECX-sq-OAb"/>
@@ -359,7 +363,7 @@
         <!--Split View Controller-->
         <scene sceneID="d56-fp-es9">
             <objects>
-                <splitViewController id="JtV-zH-Q4U" sceneMemberID="viewController">
+                <splitViewController id="JtV-zH-Q4U" customClass="SplitViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="JXS-DN-zFk" kind="relationship" relationship="masterViewController" id="WPd-yL-ZsB"/>
                         <segue destination="CnK-LR-1qH" kind="relationship" relationship="detailViewController" id="ZwB-Z6-5dZ"/>

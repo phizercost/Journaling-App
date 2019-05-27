@@ -11,6 +11,7 @@ import RealmSwift
 
 class JournalTableViewController: UITableViewController {
 
+    @IBOutlet weak var topHeaderView: UIView!
     @IBOutlet weak var whiteCameraBtn: UIButton!
     
     @IBOutlet weak var whiteAddBtn: UIButton!
@@ -21,6 +22,14 @@ class JournalTableViewController: UITableViewController {
         super.viewDidLoad()
         whiteCameraBtn.imageView?.contentMode = .scaleAspectFit
         whiteAddBtn.imageView?.contentMode = .scaleAspectFit
+        
+        
+        topHeaderView.backgroundColor = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.00) 
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.298, green: 0.757, blue: 0.988, alpha: 1.00) // 4cc1fc
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+        
         
         
     }
@@ -78,6 +87,9 @@ class JournalTableViewController: UITableViewController {
                 } else {
                     cell.imageViewWidth.constant = 0
                 }
+                cell.monthLabel.text = entry.monthString()
+                cell.dayLabel.text = entry.dayString()
+                cell.yearLabel.text = entry.yearString()
             }
             return cell
         }

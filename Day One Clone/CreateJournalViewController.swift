@@ -20,10 +20,10 @@ class CreateJournalViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var aboveNavBar: UIView!
     @IBOutlet weak var setDateButton: UIButton!
-    var date = Date()
     var imagePicker = UIImagePickerController()
     var images : [UIImage] = []
     var startWithCamera = false
+    var entry = Entry()
     
     
     
@@ -59,9 +59,8 @@ class CreateJournalViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func updateDate(){
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, MMM d, yyyy"
-        navbar.topItem?.title = formatter.string(from: date)
+        
+        navbar.topItem?.title = entry.datePrettyString()
     }
     @objc func KeyboardWillHide(notification:Notification){
         changeKeyboardHeight(notification: notification)
@@ -87,9 +86,7 @@ class CreateJournalViewController: UIViewController, UIImagePickerControllerDele
     
     @IBAction func saveTapped(_ sender: Any) {
         if let realm = try? Realm() {
-            let entry = Entry()
             entry.text = textView.text
-            entry.date = date
             for image in images{
                 let picture = Picture(image: image)
                 entry.pictures.append(picture)
@@ -116,7 +113,7 @@ class CreateJournalViewController: UIViewController, UIImagePickerControllerDele
         textView.isHidden = true
         datePicker.isHidden = false
         setDateButton.isHidden = false
-        datePicker.date = date
+        datePicker.date = entry.date
     }
     
     
@@ -124,7 +121,7 @@ class CreateJournalViewController: UIViewController, UIImagePickerControllerDele
         textView.isHidden = false
         datePicker.isHidden = true
         setDateButton.isHidden = true
-        date = datePicker.date
+        entry.date = datePicker.date
         updateDate()
     }
     
