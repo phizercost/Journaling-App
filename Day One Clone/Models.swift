@@ -40,6 +40,12 @@ class Entry: Object {
         return formatter.string(from: date)
     }
     
+    func monthYearString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM yyyy"
+        return formatter.string(from: date)
+    }
+    
     
 }
 
