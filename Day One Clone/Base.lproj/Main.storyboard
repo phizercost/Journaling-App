@@ -17,13 +17,48 @@
                     <view key="view" contentMode="scaleToFill" id="oCM-nU-HtK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjQ-LT-VxH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jmf-8t-WTD">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdvasdvads augdsiad gadsgiuas uyiagd iaiguiasgd aigdai gdsygausdg augdyuaguydfg augdu yguy auygsdcua gcaug fua" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwG-Vg-Rt9">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Jmf-8t-WTD" firstAttribute="top" secondItem="VjQ-LT-VxH" secondAttribute="top" id="BnE-kQ-9pY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jmf-8t-WTD" secondAttribute="bottom" id="OAB-Bc-pWX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jmf-8t-WTD" secondAttribute="trailing" id="f4k-B6-dDD"/>
+                                    <constraint firstItem="Jmf-8t-WTD" firstAttribute="width" secondItem="VjQ-LT-VxH" secondAttribute="width" id="lyh-qC-fOi"/>
+                                    <constraint firstItem="Jmf-8t-WTD" firstAttribute="leading" secondItem="VjQ-LT-VxH" secondAttribute="leading" id="u3f-eX-mBD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lgq-ts-dcV" firstAttribute="trailing" secondItem="VjQ-LT-VxH" secondAttribute="trailing" id="A5T-ai-OMr"/>
+                            <constraint firstItem="lgq-ts-dcV" firstAttribute="bottom" secondItem="VjQ-LT-VxH" secondAttribute="bottom" id="BUz-44-uFf"/>
+                            <constraint firstItem="VjQ-LT-VxH" firstAttribute="leading" secondItem="lgq-ts-dcV" secondAttribute="leading" id="d6Z-cK-oNF"/>
+                            <constraint firstItem="VjQ-LT-VxH" firstAttribute="top" secondItem="lgq-ts-dcV" secondAttribute="top" id="rqu-fR-VXM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lgq-ts-dcV"/>
                     </view>
+                    <connections>
+                        <outlet property="journalTextLabel" destination="fwG-Vg-Rt9" id="9Rn-H4-zVd"/>
+                        <outlet property="stackView" destination="Jmf-8t-WTD" id="2lG-Uz-7bW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F15-SX-WRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="-335"/>
+            <point key="canvasLocation" x="1296" y="-271"/>
         </scene>
         <!--Item-->
         <scene sceneID="mkV-IZ-jvw">
@@ -100,6 +135,9 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="IWK-LW-mDv"/>
+                    <connections>
+                        <segue destination="CnK-LR-1qH" kind="showDetail" identifier="photoToDetail" id="KIb-FK-vCQ"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0y-4P-Bx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,7 +275,9 @@
         <scene sceneID="E0X-tK-dxq">
             <objects>
                 <tabBarController id="niY-ek-AgQ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Day One Clone" id="OqG-lB-d9z"/>
+                    <navigationItem key="navigationItem" title="Day One Clone" id="OqG-lB-d9z">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="XHO-IB-aSo"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZKg-bc-hPz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -380,6 +420,7 @@
                         <outlet property="whiteAddBtn" destination="aoW-d9-J3O" id="Zf1-gj-K4u"/>
                         <outlet property="whiteCameraBtn" destination="8rg-sq-YIv" id="cmh-Qb-lBC"/>
                         <segue destination="pQY-BS-Edd" kind="presentation" identifier="goToNew" id="Vyb-jV-2j8"/>
+                        <segue destination="CnK-LR-1qH" kind="showDetail" identifier="tableToDetail" id="rOY-iY-F6S"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ns9-RI-ruN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,4 +466,7 @@
         <image name="calendar" width="256" height="256"/>
         <image name="whiteCamera" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KIb-FK-vCQ"/>
+    </inferredMetricsTieBreakers>
 </document>
