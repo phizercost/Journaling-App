@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="1296" y="-271"/>
         </scene>
-        <!--Item-->
+        <!--Photos-->
         <scene sceneID="mkV-IZ-jvw">
             <objects>
                 <collectionViewController id="RkY-n8-djS" customClass="PhotoCollectionCollectionViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                             <outlet property="delegate" destination="RkY-n8-djS" id="sBe-x3-Ncx"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="IWK-LW-mDv"/>
+                    <tabBarItem key="tabBarItem" title="Photos" image="camera" id="IWK-LW-mDv"/>
                     <connections>
                         <segue destination="CnK-LR-1qH" kind="showDetail" identifier="photoToDetail" id="KIb-FK-vCQ"/>
                     </connections>
@@ -292,7 +292,7 @@
             </objects>
             <point key="canvasLocation" x="2309" y="-983"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="ccC-GV-lZw">
             <objects>
                 <tableViewController id="BKb-p3-RNi" customClass="JournalTableViewController" customModule="Day_One_Clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -414,7 +414,7 @@
                             <outlet property="delegate" destination="BKb-p3-RNi" id="hAC-LK-sDe"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="vMh-y4-0tY"/>
+                    <tabBarItem key="tabBarItem" title="List" image="database" id="vMh-y4-0tY"/>
                     <connections>
                         <outlet property="topHeaderView" destination="hl0-QT-Xa4" id="aAY-Ly-rGF"/>
                         <outlet property="whiteAddBtn" destination="aoW-d9-J3O" id="Zf1-gj-K4u"/>
@@ -464,6 +464,8 @@
         <image name="add" width="256" height="256"/>
         <image name="blueCamera" width="256" height="256"/>
         <image name="calendar" width="256" height="256"/>
+        <image name="camera" width="30" height="30"/>
+        <image name="database" width="30" height="30"/>
         <image name="whiteCamera" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
